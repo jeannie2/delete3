@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+
+   
+table, td {
+  border: 1px solid black;
+ 
+}
+
+table {
+  background:black;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top:100px;
+  padding-left: 15px;
+  padding-right:15px;
+  padding-top:15px;
+  padding-bottom:15px;
+}
+
+.lit{
+    box-shadow:0px 0px 10px 0.9px pink !important;
+}
+
+td {
+    height:170px;
+    width:140px;
+    border:1px solid white !important;
+}
+
+img {
+border:0.5px solid red;
+display:block;
+width:100%;
+height:100%;
+pointer-events: none;
+}
+
+td {
+border:none;
+}
+
+</style>
+</head>
+<body>
+
+
+<table id="myTable">
+  <tr>
+  	<td>
+  		<a href="gaze.jpg" download>
+        	<img src="gaze.jpg" />
+        
+    	</a>
+    </td>
+    
+   	<td>
+        <a href="http://dummyimage.com/68x68/000/fff" download>
+        	<img src="http://dummyimage.com/68x68/000/fff" />
+        
+    	</a>
+    </td>
+    
+    <td>
+        <a href="http://dummyimage.com/68x68/000/fff" download>
+        	<img src="http://dummyimage.com/68x68/000/fff" />
+        
+    	</a>
+    </td>
+    
+  </tr>
+  	<td>
+        <a href="http://dummyimage.com/68x68/000/fff" download>
+        	<img src="http://dummyimage.com/68x68/000/fff" />
+        
+    	</a>
+    </td>
+    
+   	<td>
+        <a href="http://dummyimage.com/68x68/000/fff" download>
+        	<img src="http://dummyimage.com/68x68/000/fff" />
+        
+    	</a>
+    </td>
+    
+    <td>
+        <a href="http://dummyimage.com/68x68/000/fff" download>
+        	<img src="http://dummyimage.com/68x68/000/fff" />
+        
+    	</a>
+    </td>
+  <tr>
+	<td>
+        <a href="http://dummyimage.com/68x68/000/fff" download>
+        	<img src="http://dummyimage.com/68x68/000/fff" />
+        
+    	</a>
+    </td>
+    
+   	<td>
+        <a href="http://dummyimage.com/68x68/000/fff" download>
+        	<img src="http://dummyimage.com/68x68/000/fff" />
+        
+    	</a>
+    </td>
+    
+    <td>
+        <a href="http://dummyimage.com/68x68/000/fff" download>
+        	<img src="http://dummyimage.com/68x68/000/fff" />
+        
+    	</a>
+    </td>
+  </tr>
+</table>
+
+<script>
+
+var table = document.querySelector("table")
+
+
+var cells = table.getElementsByTagName("td"); 
+console.log(cells.length);
+for (var i = 0; i < cells.length; i++) { 
+    cells[i].classList.toggle("lit");
+  /* cells[i].onclick = function(){
+       validremaining();
+       };*/
+}
+
+function myFunction() {
+  var x = document.getElementById("myTable");
+  x.deleteRow(0);
+}
+
+/*
+function validRemaining() {
+if(this).innertextandhide? <= 5 {
+    //do nothing proceed
+} else { 
+    console.log("no more left");
+    //adjust style 
+    return;
+}
+} */
+
+</script>
+
+</body>
+</html>
