@@ -54,14 +54,14 @@ border:none;
 <table id="myTable">
   <tr>
   	<td id="why">
-  		<a href="gaze.jpg" download>
+  		<a href="gaze.jpg">
         	<img src="gaze.jpg" />
         
     	</a>
     </td>
     
-   	<td>
-        <a href="http://dummyimage.com/68x68/000/fff" download>
+   	<td id="cow">
+        <a href="http://dummyimage.com/68x68/000/fff">
         	<img src="http://dummyimage.com/68x68/000/fff" />
         
     	</a>
@@ -138,10 +138,24 @@ function myFunction() {
   x.deleteRow(0);
 }
 
-var why = document.getElementById("why");
-why.addEventListener("click", function() {
-  why.classList.add("cap")
-  why.classList.remove("lit");
+var tulip = 5;
+console.log("tulip" + tulip)
+
+var cow = document.getElementById("cow");
+cow.addEventListener("click", function() {
+    if(tulip > 0) {
+        cow.classList.add("cap");
+        cow.classList.remove("lit");
+        tulip--;
+        console.log(tulip);
+        return tulip;
+        } 
+    else {
+        console.log("out of stock");
+        cow.removeEventListener("click");
+        console.log("tulip");
+        cow.removeAttribute("href"); //or change to ""
+        }
 });
 
 /*
