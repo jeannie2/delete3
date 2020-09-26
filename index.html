@@ -25,7 +25,7 @@ table {
 }
 
 .lit{
-    box-shadow:0px 0px 10px 0.9px pink !important;
+    box-shadow:0px 0px 15px 0.9px pink !important;
 }
 
 td {
@@ -61,15 +61,15 @@ border:none;
     </td>
     
    	<td id="cow">
-        <a href="http://dummyimage.com/68x68/000/fff" download>
+        <!----<a href="http://dummyimage.com/68x68/000/fff" download>
         	<img src="http://dummyimage.com/68x68/000/fff" />
         
-    	</a>
+    	</a>-->
     </td>
     
     <td>
         <a href="http://dummyimage.com/68x68/000/fff" download>
-        	<img src="http://dummyimage.com/68x68/000/fff" />
+        	<img src="http://dummyimage.com/68x68/000/fff"/>
         
     	</a>
     </td>
@@ -83,7 +83,7 @@ border:none;
     </td>
     
    	<td>
-        <a href="http://dummyimage.com/68x68/000/fff" download>
+        <a href="http://dummyimage.com/68x68/000/fff" download >
         	<img src="http://dummyimage.com/68x68/000/fff" />
         
     	</a>
@@ -104,14 +104,14 @@ border:none;
     </td>
     
    	<td>
-        <a href="http://dummyimage.com/68x68/000/fff" download>
+        <a href="http://dummyimage.com/68x68/000/fff" download >
         	<img src="http://dummyimage.com/68x68/000/fff" />
         
     	</a>
     </td>
     
     <td>
-        <a href="http://dummyimage.com/68x68/000/fff" download>
+        <a href="http://dummyimage.com/68x68/000/fff" download >
         	<img src="http://dummyimage.com/68x68/000/fff" />
         
     	</a>
@@ -141,20 +141,21 @@ function myFunction() {
 var tulip = 5;
 console.log("tulip" + tulip)
 
-var cow = document.getElementById("cow");
-cow.addEventListener("click", function() {
+var why = document.getElementById("why");
+why.addEventListener("click", function() {
     if(tulip > 0) {
-        cow.classList.add("cap");
-        cow.classList.remove("lit");
+        why.classList.add("cap");
+        why.classList.remove("lit");
         tulip--;
         console.log(tulip);
         return tulip;
         } 
     else {
         console.log("out of stock");
-        cow.removeEventListener("click");
+        this.onclick=false;
         console.log("tulip");
-        cow.removeAttribute("href"); //or change to ""
+        why.href=""
+        //cow.removeAttribute("href"); //or change to ""
         }
 });
 
