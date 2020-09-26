@@ -20,6 +20,10 @@ table {
   padding-bottom:10px;
 }
 
+.cap {
+    box-shadow:5px 0px 10px 0.9px green !important;
+}
+
 .lit{
     box-shadow:0px 0px 10px 0.9px pink !important;
 }
@@ -136,7 +140,7 @@ function myFunction() {
 
 var why = document.getElementById("why");
 why.addEventListener("click", function() {
-  
+  why.classList.add("cap")
   why.classList.remove("lit");
 });
 
