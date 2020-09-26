@@ -142,7 +142,9 @@ var tulip = 5;
 console.log("tulip" + tulip)
 
 var why = document.getElementById("why");
-why.addEventListener("click", function() {
+why.addEventListener("click", sprinke);
+
+function sprinkle() {
     if(tulip > 0) {
         why.classList.add("cap");
         why.classList.remove("lit");
@@ -154,10 +156,15 @@ why.addEventListener("click", function() {
         console.log("out of stock");
         this.onclick=false;
         console.log("tulip");
-        why.href=""
-        //cow.removeAttribute("href"); //or change to ""
+        ////why.href=""
+        //remove click event 
+        //make href nil
+        //or no hover effects
+        why.removeEventListener("click", sprinke)
+        why.removeAttribute("download");
+        why.removeAttribute("href"); //or change to ""
         }
-});
+};
 
 /*
 function validRemaining() {
