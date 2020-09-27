@@ -161,8 +161,9 @@ function sprinkle() {
         //make href nil
         //or no hover effects
         why.removeEventListener("click", sprinkle)
-        why.removeAttribute("download");
-        why.removeAttribute("href"); //or change to ""
+        why.removeAttribute("download"); //within the thing 
+        why.removeAttribute("href"); //or change to ""   //within the thing
+        document.querySelector('[href="gaze.jpg"]').removeAttribute("download");
         }
 };
 
@@ -177,6 +178,13 @@ if(this).innertextandhide? <= 5 {
 }
 } */
 
+
+document.addEventListener("keydown",function(e){
+        if(event.keyCode===32) { 
+            document.querySelector('[href="gaze.jpg"]').removeAttribute("download");
+        }
+    });
+    
 </script>
 
 </body>
