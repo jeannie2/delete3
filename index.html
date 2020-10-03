@@ -2,8 +2,6 @@
 <html>
 <head>
 <style>
-
-   
 table, td {
   border: 1px solid black;
  
@@ -50,11 +48,12 @@ border:none;
 </head>
 <body>
 
+        <a href="https://www.w3schools.com">Visit W3Schools</a>
 
 <table id="myTable">
   <tr>
   	<td id="why">
-  		<!--<a href="gaze.jpg" download>
+  		<!---<a href="gaze.jpg" download>
         	<img src="gaze.jpg" />-->
         
     	</a>
@@ -68,51 +67,51 @@ border:none;
     </td>
     
     <td>
-        <a href="http://dummyimage.com/68x68/000/fff" download>
-        	<img src="http://dummyimage.com/68x68/000/fff"/>
+       <!---- <a href="http://dummyimage.com/68x68/000/fff" >
+        	<img src="http://dummyimage.com/68x68/000/fff"/> -->
         
     	</a>
     </td>
     
   </tr>
   	<td>
-        <a href="http://dummyimage.com/68x68/000/fff" download>
-        	<img src="http://dummyimage.com/68x68/000/fff" />
+      <!----  <a href="http://dummyimage.com/68x68/000/fff">
+        	<img src="http://dummyimage.com/68x68/000/fff" />  -->
         
     	</a>
     </td>
     
    	<td>
-        <a href="http://dummyimage.com/68x68/000/fff" download >
-        	<img src="http://dummyimage.com/68x68/000/fff" />
+  <!----      <a href="http://dummyimage.com/68x68/000/fff"  >
+        	<img src="http://dummyimage.com/68x68/000/fff" />  -->
         
     	</a>
     </td>
     
     <td>
-        <a href="http://dummyimage.com/68x68/000/fff" download>
-        	<img src="http://dummyimage.com/68x68/000/fff" />
+      <!----  <a href="http://dummyimage.com/68x68/000/fff" >
+        	<img src="http://dummyimage.com/68x68/000/fff" /> -->
         
     	</a>
     </td>
   <tr>
 	<td>
-        <a href="http://dummyimage.com/68x68/000/fff" download>
-        	<img src="http://dummyimage.com/68x68/000/fff" />
-        
+  <!---      <a href="http://dummyimage.com/68x68/000/fff" >
+        	<img src="http://dummyimage.com/68x68/000/fff" />  -->
+         
     	</a>
     </td>
     
    	<td>
-        <a href="http://dummyimage.com/68x68/000/fff" download >
-        	<img src="http://dummyimage.com/68x68/000/fff" />
+   <!----     <a href="http://dummyimage.com/68x68/000/fff" >
+        	<img src="http://dummyimage.com/68x68/000/fff" /> -->
         
     	</a>
     </td>
     
     <td>
-        <a href="http://dummyimage.com/68x68/000/fff" download >
-        	<img src="http://dummyimage.com/68x68/000/fff" />
+  <!----      <a href="http://dummyimage.com/68x68/000/fff" >
+        	<img src="http://dummyimage.com/68x68/000/fff" /> -->
         
     	</a>
     </td>
@@ -122,23 +121,20 @@ border:none;
 <script>
 
 var table = document.querySelector("table")
-
 var cells = table.getElementsByTagName("td"); 
-console.log(cells.length);
+var tulip = 0;
+console.log("tulip: " + tulip)
+//console.log(cells.length);
+
+for (var i = 0; i < cells.length; i++) {
+  cells[i].addEventListener('click', sprinkle);
+}
+
+/*
 for (var i = 0; i < cells.length; i++) { 
     cells[i].classList.toggle("lit");
 }
-
-var tulip = 0;
-console.log("tulip: " + tulip)
-
-//
-for (var i = 0; i < cells.length; i++) {
-  cells[i].addEventListener('click', function (e) {
-    console.log(e.target);
-  });
-}
-//
+*/
 
 var why = document.getElementById("why");
 
@@ -151,61 +147,66 @@ console.log("value: " + value);
 console.log(value.typeof);;
 
 function sprinkle() {
-    if(tulip < 5) { //localStorage.getItem('trials').toSTring()  or just value
-        why.classList.add("cap");
-        why.classList.remove("lit"); //the one just clicked. specific one remove light QQ
+    if((parseInt(localStorage.getItem('trials'))) < 5) { //localStorage.getItem('trials').toSTring()  or just value
+        this.classList.add("cap");
+        this.classList.remove("lit"); //the one just clicked. specific one remove light QQ
         tulip++;
-        console.log(tulip);
+        console.log("tulip" + tulip);
         localStorage.setItem('trials', tulip.toString()) //need convert to string?
         return tulip;
         } 
     else { //5 or more
         console.log("out of stock");
         this.onclick=false;
-        console.log("tulip"); //localStorage.getItem('trials') or just value try later
+        console.log("tulip: " + parseInt(localStorage.getItem('trials'))); //localStorage.getItem('trials') or just value try later
         //or parseInt(localStorage.getItem('trials') 
        
-        why.removeEventListener("click", sprinkle)
-        why.removeAttribute("download"); //within the thing 
+        this.classList.remove("cap"); //change to class name for glowing
+        removeLinks(); //check if works
+        this.removeEventListener("click", sprinkle) //check if works on browser github
         
-        why.removeAttribute("href"); //or change to ""   //within the thing or BELOW
-
-        //
-        var links = document.querySelectorAll("a");
-        for(var i = 0; i  < links.length; i ++) {
-            links[i].target="";
-        }
-        //--
-
-        document.querySelector('[href="gaze.jpg"]').removeAttribute("download");
+       // this.removeAttribute("download"); //within the thing 
+        
+       // why.removeAttribute("href"); //or change to ""   //within the thing or BELOW
+        document.querySelector('[href="gaze.jpg"]').removeAttribute("download"); //dont need 
+        
         }
 };
 
 // delete
 document.addEventListener("keydown",function(e){
-        if(event.keyCode===32) { 
-            document.querySelector('[href="gaze.jpg"]').removeAttribute("download");
+        if(event.keyCode===32) {
+           // document.querySelector('[href="gaze.jpg"]').removeAttribute("download");
         }
     });
 
+function removeLinks() {
+    console.log("solid")
+    var links = document.getElementsByTagName("a");
+    for(var i=0; i < links.length; i++) {
+        console.log(links[i].href);
+        links[i].href= " "; //still clickable
+    }
+}
 
 var now = new Date();
 console.log(now);
 var date = now.getDate(); //number
-var month = now.getMonth();
+var month = now.getMonth() + 1;
 localStorage.setItem("date", date);
 localStorage.setItem("month", month)
 
 parseInt(localStorage.getItem("date"));//returns string
 parseInt(localStorage.getItem("month")); //returns string
 
-var present = newDate()
+var present = new Date()
 present.getDate() === parseInt(localStorage.getItem("date"));
 present.getMonth() === parseInt(localStorage.getItem("month"));
 //wont bother with year
 
+//ideally use condition when hv new images each day
 if ((present.getDate() !== parseInt(localStorage.getItem("date"))) && (present.getMonth() !== parseInt(localStorage.getItem("month")))) {
- sprinke();
+// sprinke();
  console.log("not same day and mnonth")
 }
 
