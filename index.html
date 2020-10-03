@@ -147,6 +147,7 @@ console.log("value: " + value);
 console.log(value.typeof);;
 
 function sprinkle() {
+	console.log("sprinkling");
     if((parseInt(localStorage.getItem('trials'))) < 5) { //localStorage.getItem('trials').toSTring()  or just value
         this.classList.add("cap");
         this.classList.remove("lit"); //the one just clicked. specific one remove light QQ
