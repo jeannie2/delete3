@@ -48,7 +48,7 @@ border:none;
 </head>
 <body>
 
-        <a href="https://www.w3schools.com">Visit W3Schools</a>
+<a href="https://www.w3schools.com">Visit W3Schools</a>
 
 <table id="myTable">
   <tr>
@@ -60,14 +60,14 @@ border:none;
     </td>
     
    	<td id="cow">
-          <a href="jetson.png" download>
+      <a href="jetson.png" download>
         	<img src="jetson.png" />
     	</a>
     </td>
     
     <td>
-       <a href="http://dummyimage.com/68x68/000/fff" >
-        <!---- 	<img src="http://dummyimage.com/68x68/000/fff"/> -->
+        <a href="http://dummyimage.com/68x68/000/fff" >
+      <!--- 	<img src="http://dummyimage.com/68x68/000/fff"/> -->
         
     	</a>
     </td>
@@ -121,8 +121,8 @@ border:none;
 
 var table = document.querySelector("table")
 var cells = table.getElementsByTagName("td"); 
-var tulip = 0;
-console.log("tulip: " + tulip)
+var counter = 0;
+console.log("counter: " + counter)
 //console.log(cells.length);
 
 for (var i = 0; i < cells.length; i++) {
@@ -135,61 +135,52 @@ for (var i = 0; i < cells.length; i++) {
 }
 */
 
-var why = document.getElementById("why");
+//var why = document.getElementById("why");
+//why.addEventListener("click", sprinkle); //add event listener to all tds
 
-why.addEventListener("click", sprinkle); //add event listener to all tds
-
-localStorage.setItem('trials', tulip.toString()) //need convert to string?
+localStorage.setItem('trials', counter.toString()) //need convert to string?
 var priorvalue = localStorage.getItem('trials') //returns number as string
 var value = parseInt(priorvalue);
 console.log("value: " + value);
-console.log(value.typeof);;
+console.log(value.typeof);
 
 function sprinkle() {
-	console.log("sprinkling");
-    if((parseInt(localStorage.getItem('trials'))) < 4) { //localStorage.getItem('trials').toSTring()  or just value
-        this.classList.add("cap");
+    if((parseInt(localStorage.getItem('trials'))) < 5) { //localStorage.getItem('trials').toSTring()  or just value
         this.classList.remove("lit"); //the one just clicked. specific one remove light QQ
-        tulip++;
-        console.log("tulip" + tulip);
-        localStorage.setItem('trials', tulip.toString()) //need convert to string?
-        return tulip;
+        this.classList.add("cap");
+        counter++;
+        localStorage.setItem('trials', counter.toString()) //need convert to string?
+        console.log("counter: " + counter);
+        return counter;
         } 
-    else { //5 or more
-        console.log("out of stock");
-        this.onclick=false;
-        console.log("tulip: " + parseInt(localStorage.getItem('trials'))); //localStorage.getItem('trials') or just value try later
-        //or parseInt(localStorage.getItem('trials') 
-       
+    else { 
+        this.onclick=false; //need?
         this.classList.remove("cap"); //change to class name for glowing
-        removeLinks(); //check if works
-        this.removeEventListener("click", sprinkle) //check if works on browser github
+        this.removeEventListener("click", sprinkle) //check
+        removeLinks(); 
         
+        console.log("out of stock");
+        console.log("counter: " + parseInt(localStorage.getItem('trials'))); //localStorage.getItem('trials') or just value try later
+       
        // this.removeAttribute("download"); //within the thing 
-        
        // why.removeAttribute("href"); //or change to ""   //within the thing or BELOW
-        document.querySelector('[href="gaze.jpg"]').removeAttribute("download"); //dont need 
+        document.querySelector('[href="gaze.jpg"]').removeAttribute("download"); //dont need . or will run error if leave download attribute (tho no img)? ** but no click event
         
         }
 };
-
-// delete
-document.addEventListener("keydown",function(e){
-        if(event.keyCode===32) {
-           // document.querySelector('[href="gaze.jpg"]').removeAttribute("download");
-        }
-    });
 
 function removeLinks() {
     console.log("solid")
     var links = document.getElementsByTagName("a");
     for(var i=0; i < links.length; i++) {
-        console.log(links[i].href);
-	   // links[i].innerHTML = "";
-        links[i].href= " "; //still clickable
+      // console.log(links[i].href);
+       links[i].href= "#"; // " " makes it go to another page when click again. still clickable . ideally remove download attribute, but i guess fine to leave
+       //leave img in cell to show
+       //links[i].outerHTML = "test "; //not this one
     }
 }
 
+//later 
 var now = new Date();
 console.log(now);
 var date = now.getDate(); //number
