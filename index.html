@@ -174,6 +174,7 @@ function removeLinks() {
     var links = document.getElementsByTagName("a");
     for(var i=0; i < links.length; i++) {
       // console.log(links[i].href);
+	    links[i].removeAttribute("download");
        links[i].href= "#"; // " " makes it go to another page when click again. still clickable . ideally remove download attribute, but i guess fine to leave
        //leave img in cell to show
        //links[i].outerHTML = "test "; //not this one
